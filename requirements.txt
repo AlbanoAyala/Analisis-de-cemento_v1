@@ -7,3 +7,10 @@ openpyxl==3.1.2
 databricks-sql-connector
 pyodbc
 lasio
+matplotlib
+matplotlib
+seaborn 
+io
+difflib
+tempfile
+os
