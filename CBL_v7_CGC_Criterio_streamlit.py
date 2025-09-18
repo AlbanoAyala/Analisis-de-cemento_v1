@@ -35,11 +35,53 @@ if 'capas_resumen' not in st.session_state:
 
 # --- CONFIGURACIÓN DE LA PÁGINA ---
 st.set_page_config(layout="wide")
+
+# --- TEMA OSCURO Y ESTILOS PERSONALIZADOS ---
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #0E1117;
+        color: #FAFAFA;
+    }
+    .main {
+        background-color: #0E1117;
+        color: #FAFAFA;
+    }
+    .stSidebar {
+        background-color: #1A1A1A;
+        color: #FAFAFA;
+    }
+    .stDownloadButton > button {
+        background-color: #1E90FF;
+        color: white;
+    }
+    .stDownloadButton > button:hover {
+        background-color: #145DA0;
+    }
+    /* Estilos para el texto de los títulos */
+    h1, h2, h3, h4, h5, h6 {
+        color: #1E90FF;
+    }
+    /* Corregir el color de los números en number_input */
+    .stNumberInput input[type="number"] {
+        color: #FAFAFA !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title('Control de calidad de cemento')
 
 # --- INTEGRACIÓN DEL LOGO ---
-logo_path = 'Logo_CGC.png'  # <--- REEMPLAZA ESTO CON EL NOMBRE DE TU ARCHIVO DE IMAGEN
-st.sidebar.image(logo_path, use_column_width=True)
+logo_path = os.path.join(os.getcwd(), 'Logo_CGC.png')
+
+# Intenta cargar el logo si existe
+if os.path.exists(logo_path):
+    st.sidebar.image(logo_path, use_column_width=True)
+else:
+    st.sidebar.warning(f"Archivo 'Logo_CGC.png' no encontrado en: {logo_path}")
 
 st.sidebar.header('Carga de Datos')
 
