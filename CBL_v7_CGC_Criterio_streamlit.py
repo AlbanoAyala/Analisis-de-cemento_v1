@@ -643,3 +643,4 @@ if st.session_state.las_loaded and st.session_state.excel_loaded:
             st.error("Por favor, ingrese los valores de TOC y Altura de Anillo solicitados.")
 else:
     st.info("Por favor, sube un archivo .las y un archivo Excel de capas para comenzar.")
+
